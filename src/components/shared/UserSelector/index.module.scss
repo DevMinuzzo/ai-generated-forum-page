@@ -1,0 +1,40 @@
+@use '@/styles/css_vars.scss' as *;
+
+.userSelector {
+  position: fixed;
+  top: $kun-spacing-s;
+  right: $kun-spacing-s;
+  background: $kun-color-bg-white;
+  border: 1px solid $kun-color-border-soft;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-xs;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.currentUser {
+  font-size: 14px;
+  color: $kun-color-text-secondary;
+  margin-bottom: $kun-spacing-3xs;
+}
+
+.userName {
+  font-weight: 600;
+  color: $kun-color-text-primary;
+}
+
+.userSelect {
+  background: $kun-color-bg-white;
+  border: 1px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-3xs;
+  padding: $kun-spacing-3xs $kun-spacing-2xs;
+  font-size: 14px;
+  color: $kun-color-text-primary;
+  cursor: pointer;
+  min-width: 120px;
+
+  &:focus {
+    outline: none;
+    border-color: $kun-color-border-active;
+  }
+}

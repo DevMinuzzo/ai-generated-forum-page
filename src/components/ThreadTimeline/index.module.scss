@@ -1,0 +1,20 @@
+@use '@/styles/css_vars.scss' as *;
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyState {
+  text-align: center;
+  padding: $kun-spacing-4xl;
+  background: $kun-color-bg-soft;
+  border: 1px solid $kun-color-border-soft;
+  border-radius: $kun-spacing-2xs;
+}
+
+.emptyText {
+  color: $kun-color-text-secondary;
+  font-size: 16px;
+  margin: 0;
+}

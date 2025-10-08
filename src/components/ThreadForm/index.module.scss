@@ -1,0 +1,120 @@
+@use '@/styles/css_vars.scss' as *;
+
+.threadForm {
+  background: $kun-color-bg-white;
+  border: 1px solid $kun-color-border-soft;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-l;
+  margin-bottom: $kun-spacing-l;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: $kun-color-text-title;
+  margin: 0 0 $kun-spacing-m 0;
+}
+
+.formGroup {
+  margin-bottom: $kun-spacing-m;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: $kun-color-text-primary;
+  margin-bottom: $kun-spacing-2xs;
+}
+
+.charCount {
+  font-size: 12px;
+  color: $kun-color-text-tertiary;
+  font-weight: 400;
+}
+
+.titleInput {
+  width: 100%;
+  padding: $kun-spacing-xs;
+  border: 1px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-3xs;
+  font-size: 16px;
+  color: $kun-color-text-primary;
+  background: $kun-color-bg-white;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: $kun-color-border-active;
+  }
+
+  &::placeholder {
+    color: $kun-color-text-inactive;
+  }
+}
+
+.moodSelector {
+  display: flex;
+  gap: $kun-spacing-s;
+}
+
+.moodOption {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.moodRadio {
+  margin-right: $kun-spacing-3xs;
+}
+
+.moodLabel {
+  font-size: 14px;
+  color: $kun-color-text-primary;
+  user-select: none;
+}
+
+.bodyTextarea {
+  width: 100%;
+  padding: $kun-spacing-xs;
+  border: 1px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-3xs;
+  font-size: 14px;
+  color: $kun-color-text-primary;
+  background: $kun-color-bg-white;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: $kun-color-border-active;
+  }
+
+  &::placeholder {
+    color: $kun-color-text-inactive;
+  }
+}
+
+.submitButton {
+  background: $kun-color-brand-sapphireblue;
+  color: $kun-color-text-ondark;
+  border: none;
+  border-radius: $kun-spacing-3xs;
+  padding: $kun-spacing-xs $kun-spacing-m;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

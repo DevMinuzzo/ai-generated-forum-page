@@ -1,0 +1,24 @@
+@use '@/styles/css_vars.scss' as *;
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 $kun-spacing-s;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  padding: $kun-spacing-l 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: $kun-color-text-title;
+  margin: 0;
+}
+
+.main {
+  padding-bottom: $kun-spacing-4xl;
+}

@@ -1,0 +1,143 @@
+@use '@/styles/css_vars.scss' as *;
+
+.threadCard {
+  background: $kun-color-bg-white;
+  border: 1px solid $kun-color-border-soft;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-l;
+  margin-bottom: $kun-spacing-l;
+}
+
+.threadHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $kun-spacing-s;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: $kun-spacing-xs;
+}
+
+.authorName {
+  font-weight: 600;
+  color: $kun-color-text-primary;
+  font-size: 14px;
+}
+
+.postDate {
+  color: $kun-color-text-tertiary;
+  font-size: 12px;
+}
+
+.mood {
+  display: flex;
+  align-items: center;
+  gap: $kun-spacing-3xs;
+}
+
+.moodEmoji {
+  font-size: 16px;
+}
+
+.moodValue {
+  font-size: 12px;
+  color: $kun-color-text-secondary;
+}
+
+.threadTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: $kun-color-text-title;
+  margin: 0 0 $kun-spacing-xs 0;
+}
+
+.threadBody {
+  color: $kun-color-text-primary;
+  line-height: 1.5;
+  margin: 0 0 $kun-spacing-s 0;
+}
+
+.threadActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: $kun-spacing-s;
+}
+
+.answerButton {
+  background: transparent;
+  color: $kun-color-brand-sapphireblue;
+  border: 1px solid $kun-color-brand-sapphireblue;
+  border-radius: $kun-spacing-3xs;
+  padding: $kun-spacing-2xs $kun-spacing-s;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $kun-color-brand-sapphireblue;
+    color: $kun-color-text-ondark;
+  }
+}
+
+.answersSection {
+  border-top: 1px solid $kun-color-border-soft;
+  padding-top: $kun-spacing-s;
+  padding-left: $kun-spacing-l;
+}
+
+.seeMoreButton {
+  background: transparent;
+  color: $kun-color-text-link;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: $kun-spacing-s;
+  text-decoration: underline;
+
+  &:hover {
+    color: $kun-color-text-link-hover;
+  }
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: $kun-spacing-s;
+}
+
+.answer {
+  background: $kun-color-bg-soft;
+  border: 1px solid $kun-color-border-soft;
+  border-radius: $kun-spacing-3xs;
+  padding: $kun-spacing-s;
+}
+
+.answerHeader {
+  display: flex;
+  align-items: center;
+  gap: $kun-spacing-xs;
+  margin-bottom: $kun-spacing-2xs;
+}
+
+.answerAuthor {
+  font-weight: 500;
+  color: $kun-color-text-primary;
+  font-size: 14px;
+}
+
+.answerDate {
+  color: $kun-color-text-tertiary;
+  font-size: 12px;
+}
+
+.answerBody {
+  color: $kun-color-text-primary;
+  line-height: 1.4;
+  margin: 0;
+  font-size: 14px;
+}
