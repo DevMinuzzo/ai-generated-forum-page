@@ -5,36 +5,64 @@
   top: $kun-spacing-s;
   right: $kun-spacing-s;
   background: $kun-color-bg-white;
-  border: 1px solid $kun-color-border-soft;
+  border: 2px solid $kun-color-border-soft;
   border-radius: $kun-spacing-2xs;
   padding: $kun-spacing-xs;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   z-index: 1000;
+  min-width: 180px;
+
+  @media (max-width: $kun-media-s-tablet) {
+    top: $kun-spacing-xs;
+    right: $kun-spacing-xs;
+    padding: $kun-spacing-2xs;
+    min-width: 150px;
+  }
 }
 
 .currentUser {
-  font-size: 14px;
+  font-size: 13px;
   color: $kun-color-text-secondary;
-  margin-bottom: $kun-spacing-3xs;
+  margin-bottom: $kun-spacing-2xs;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 12px;
+  }
 }
 
 .userName {
-  font-weight: 600;
+  font-weight: 700;
   color: $kun-color-text-primary;
+  display: block;
+  margin-top: $kun-spacing-3xs;
 }
 
 .userSelect {
+  width: 100%;
   background: $kun-color-bg-white;
-  border: 1px solid $kun-color-border-medium;
+  border: 2px solid $kun-color-border-medium;
   border-radius: $kun-spacing-3xs;
-  padding: $kun-spacing-3xs $kun-spacing-2xs;
+  padding: $kun-spacing-2xs $kun-spacing-xs;
   font-size: 14px;
   color: $kun-color-text-primary;
   cursor: pointer;
-  min-width: 120px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 13px;
+    padding: $kun-spacing-3xs $kun-spacing-2xs;
+  }
 
   &:focus {
     outline: none;
+    border-color: $kun-color-brand-sapphireblue;
+    box-shadow: 0 0 0 3px rgba($kun-color-brand-sapphireblue, 0.1);
+  }
+
+  &:hover {
     border-color: $kun-color-border-active;
   }
 }

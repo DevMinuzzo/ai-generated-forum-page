@@ -6,91 +6,177 @@
   border-radius: $kun-spacing-2xs;
   padding: $kun-spacing-l;
   margin-bottom: $kun-spacing-l;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-s;
+    margin-bottom: $kun-spacing-s;
+  }
 }
 
 .formTitle {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: $kun-color-text-title;
-  margin: 0 0 $kun-spacing-m 0;
+  margin: 0 0 $kun-spacing-l 0;
+  letter-spacing: -0.02em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 20px;
+    margin-bottom: $kun-spacing-s;
+  }
 }
 
 .formGroup {
-  margin-bottom: $kun-spacing-m;
+  margin-bottom: $kun-spacing-s;
+
+  @media (max-width: $kun-media-s-tablet) {
+    margin-bottom: $kun-spacing-xs;
+  }
 }
 
 .label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   color: $kun-color-text-primary;
   margin-bottom: $kun-spacing-2xs;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 14px;
+  }
 }
 
 .charCount {
-  font-size: 12px;
+  font-size: 13px;
   color: $kun-color-text-tertiary;
   font-weight: 400;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 12px;
+  }
 }
 
 .titleInput {
   width: 100%;
   padding: $kun-spacing-xs;
-  border: 1px solid $kun-color-border-medium;
-  border-radius: $kun-spacing-3xs;
+  border: 2px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-2xs;
   font-size: 16px;
   color: $kun-color-text-primary;
   background: $kun-color-bg-white;
   box-sizing: border-box;
+  transition: all 0.2s ease;
+  font-weight: 500;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-2xs;
+    font-size: 14px;
+  }
 
   &:focus {
     outline: none;
-    border-color: $kun-color-border-active;
+    border-color: $kun-color-brand-sapphireblue;
+    box-shadow: 0 0 0 3px rgba($kun-color-brand-sapphireblue, 0.1);
   }
 
   &::placeholder {
     color: $kun-color-text-inactive;
+    font-weight: 400;
   }
 }
 
 .moodSelector {
-  display: flex;
-  gap: $kun-spacing-s;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $kun-spacing-2xs;
+  width: 100%;
+
+  @media (max-width: $kun-media-s-tablet) {
+    gap: $kun-spacing-3xs;
+  }
 }
 
 .moodOption {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: $kun-spacing-xs;
+  border: 2px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-2xs;
+  background: $kun-color-bg-white;
   cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 60px;
+  gap: $kun-spacing-3xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-2xs;
+    min-height: 50px;
+  }
+
+  &:hover {
+    border-color: $kun-color-brand-sapphireblue;
+    background: $kun-color-bg-hover;
+  }
+
+  &.moodOptionActive {
+    border-color: $kun-color-brand-sapphireblue;
+    background: $kun-color-brand-sapphireblue;
+    color: $kun-color-text-ondark;
+    
+    .moodValue {
+      color: $kun-color-text-ondark;
+    }
+  }
 }
 
-.moodRadio {
-  margin-right: $kun-spacing-3xs;
+.moodEmoji {
+  font-size: 20px;
+  line-height: 1;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 16px;
+  }
 }
 
-.moodLabel {
-  font-size: 14px;
-  color: $kun-color-text-primary;
-  user-select: none;
+.moodValue {
+  font-size: 12px;
+  font-weight: 600;
+  color: $kun-color-text-secondary;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 10px;
+  }
 }
 
 .bodyTextarea {
   width: 100%;
   padding: $kun-spacing-xs;
-  border: 1px solid $kun-color-border-medium;
-  border-radius: $kun-spacing-3xs;
-  font-size: 14px;
+  border: 2px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-2xs;
+  font-size: 15px;
   color: $kun-color-text-primary;
   background: $kun-color-bg-white;
   font-family: inherit;
   resize: vertical;
   box-sizing: border-box;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-2xs;
+    font-size: 14px;
+  }
 
   &:focus {
     outline: none;
-    border-color: $kun-color-border-active;
+    border-color: $kun-color-brand-sapphireblue;
+    box-shadow: 0 0 0 3px rgba($kun-color-brand-sapphireblue, 0.1);
   }
 
   &::placeholder {
@@ -99,22 +185,34 @@
 }
 
 .submitButton {
-  background: $kun-color-brand-sapphireblue;
+  background: $kun-color-base-coral-90;
   color: $kun-color-text-ondark;
   border: none;
-  border-radius: $kun-spacing-3xs;
-  padding: $kun-spacing-xs $kun-spacing-m;
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-xs $kun-spacing-s;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+  margin-left: auto;
+  display: block;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-2xs $kun-spacing-xs;
+    font-size: 14px;
+  }
 
   &:hover:not(:disabled) {
-    opacity: 0.9;
+    background: $kun-color-base-coral-100;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba($kun-color-base-coral-90, 0.3);
   }
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 }

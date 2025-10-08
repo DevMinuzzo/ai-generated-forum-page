@@ -9,12 +9,14 @@
   text-align: center;
   padding: $kun-spacing-4xl;
   background: $kun-color-bg-soft;
-  border: 1px solid $kun-color-border-soft;
-  border-radius: $kun-spacing-2xs;
+  border: 2px dashed $kun-color-border-medium;
+  border-radius: $kun-spacing-xs;
 }
 
 .emptyText {
   color: $kun-color-text-secondary;
   font-size: 16px;
   margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }

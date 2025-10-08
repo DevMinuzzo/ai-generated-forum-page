@@ -42,18 +42,23 @@ export default function ThreadForm({ onSubmit }: ThreadFormProps) {
       <div className={styles.formGroup}>
         <label htmlFor="mood" className={styles.label}>Mood</label>
         <div className={styles.moodSelector}>
-          {[1, 2, 3, 4, 5].map((moodValue) => (
-            <label key={moodValue} className={styles.moodOption}>
-              <input
-                type="radio"
-                name="mood"
-                value={moodValue}
-                checked={mood === moodValue}
-                onChange={(e) => setMood(Number(e.target.value))}
-                className={styles.moodRadio}
-              />
-              <span className={styles.moodLabel}>{moodValue}</span>
-            </label>
+          {[
+            { value: 1, emoji: '😢', label: 'Very Sad' },
+            { value: 2, emoji: '😕', label: 'Sad' },
+            { value: 3, emoji: '😐', label: 'Neutral' },
+            { value: 4, emoji: '😊', label: 'Happy' },
+            { value: 5, emoji: '😄', label: 'Very Happy' }
+          ].map((moodOption) => (
+            <button
+              key={moodOption.value}
+              type="button"
+              onClick={() => setMood(moodOption.value)}
+              className={`${styles.moodOption} ${mood === moodOption.value ? styles.moodOptionActive : ''}`}
+              title={moodOption.label}
+            >
+              <span className={styles.moodEmoji}>{moodOption.emoji}</span>
+              <span className={styles.moodValue}>{moodOption.value}</span>
+            </button>
           ))}
         </div>
       </div>

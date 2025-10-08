@@ -2,47 +2,73 @@
 
 .answerForm {
   background: $kun-color-bg-soft;
-  border: 1px solid $kun-color-border-soft;
-  border-radius: $kun-spacing-3xs;
+  border: 2px solid $kun-color-border-soft;
+  border-radius: $kun-spacing-2xs;
   padding: $kun-spacing-s;
-  margin: $kun-spacing-s 0;
+  margin: $kun-spacing-xs 0;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-xs;
+    margin: $kun-spacing-2xs 0;
+  }
 }
 
 .formGroup {
-  margin-bottom: $kun-spacing-s;
+  margin-bottom: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    margin-bottom: $kun-spacing-2xs;
+  }
 }
 
 .label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   color: $kun-color-text-primary;
   margin-bottom: $kun-spacing-2xs;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 14px;
+  }
 }
 
 .charCount {
-  font-size: 12px;
+  font-size: 13px;
   color: $kun-color-text-tertiary;
   font-weight: 400;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 12px;
+  }
 }
 
 .bodyTextarea {
   width: 100%;
   padding: $kun-spacing-xs;
-  border: 1px solid $kun-color-border-medium;
-  border-radius: $kun-spacing-3xs;
-  font-size: 14px;
+  border: 2px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-2xs;
+  font-size: 15px;
   color: $kun-color-text-primary;
   background: $kun-color-bg-white;
   font-family: inherit;
   resize: vertical;
   box-sizing: border-box;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-2xs;
+    font-size: 14px;
+  }
 
   &:focus {
     outline: none;
-    border-color: $kun-color-border-active;
+    border-color: $kun-color-brand-sapphireblue;
+    box-shadow: 0 0 0 3px rgba($kun-color-brand-sapphireblue, 0.1);
   }
 
   &::placeholder {
@@ -59,16 +85,24 @@
 .cancelButton {
   background: transparent;
   color: $kun-color-text-secondary;
-  border: 1px solid $kun-color-border-medium;
-  border-radius: $kun-spacing-3xs;
-  padding: $kun-spacing-2xs $kun-spacing-s;
+  border: 2px solid $kun-color-border-medium;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-2xs $kun-spacing-xs;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-3xs $kun-spacing-2xs;
+    font-size: 13px;
+  }
 
   &:hover {
-    background: $kun-color-bg-soft;
+    background: $kun-color-bg-medium;
     color: $kun-color-text-primary;
+    border-color: $kun-color-border-active;
   }
 }
 
@@ -76,19 +110,29 @@
   background: $kun-color-brand-sapphireblue;
   color: $kun-color-text-ondark;
   border: none;
-  border-radius: $kun-spacing-3xs;
-  padding: $kun-spacing-2xs $kun-spacing-s;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-2xs $kun-spacing-xs;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-3xs $kun-spacing-2xs;
+    font-size: 13px;
+  }
 
   &:hover:not(:disabled) {
-    opacity: 0.9;
+    background: $kun-color-brand-sapphireblue;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba($kun-color-brand-sapphireblue, 0.3);
   }
 
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 }

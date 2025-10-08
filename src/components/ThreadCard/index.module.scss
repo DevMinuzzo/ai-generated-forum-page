@@ -6,87 +6,160 @@
   border-radius: $kun-spacing-2xs;
   padding: $kun-spacing-l;
   margin-bottom: $kun-spacing-l;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-s;
+    margin-bottom: $kun-spacing-s;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
 }
 
 .threadHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $kun-spacing-s;
+  margin-bottom: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    margin-bottom: $kun-spacing-2xs;
+  }
 }
 
 .authorInfo {
   display: flex;
   align-items: center;
   gap: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    gap: $kun-spacing-2xs;
+  }
 }
 
 .authorName {
-  font-weight: 600;
+  font-weight: 700;
   color: $kun-color-text-primary;
-  font-size: 14px;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 14px;
+  }
 }
 
 .postDate {
   color: $kun-color-text-tertiary;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 12px;
+  }
 }
 
 .mood {
   display: flex;
   align-items: center;
-  gap: $kun-spacing-3xs;
+  gap: $kun-spacing-2xs;
+  background: $kun-color-bg-soft;
+  padding: $kun-spacing-3xs $kun-spacing-2xs;
+  border-radius: $kun-spacing-3xs;
+  cursor: help;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-4xs $kun-spacing-3xs;
+  }
 }
 
 .moodEmoji {
-  font-size: 16px;
+  font-size: 18px;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 16px;
+  }
 }
 
 .moodValue {
   font-size: 12px;
   color: $kun-color-text-secondary;
+  font-weight: 600;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 10px;
+  }
 }
 
 .threadTitle {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: $kun-color-text-title;
   margin: 0 0 $kun-spacing-xs 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 18px;
+    margin-bottom: $kun-spacing-2xs;
+  }
 }
 
 .threadBody {
   color: $kun-color-text-primary;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0 0 $kun-spacing-s 0;
+  font-size: 15px;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 14px;
+    margin-bottom: $kun-spacing-xs;
+  }
 }
 
 .threadActions {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: $kun-spacing-s;
+  margin-bottom: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    margin-bottom: $kun-spacing-2xs;
+  }
 }
 
 .answerButton {
   background: transparent;
-  color: $kun-color-brand-sapphireblue;
-  border: 1px solid $kun-color-brand-sapphireblue;
-  border-radius: $kun-spacing-3xs;
-  padding: $kun-spacing-2xs $kun-spacing-s;
+  color: $kun-color-text-link;
+  border: none;
+  padding: 0;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+  text-decoration: underline;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 13px;
+  }
 
   &:hover {
-    background: $kun-color-brand-sapphireblue;
-    color: $kun-color-text-ondark;
+    color: $kun-color-text-link-hover;
   }
 }
 
 .answersSection {
   border-top: 1px solid $kun-color-border-soft;
-  padding-top: $kun-spacing-s;
-  padding-left: $kun-spacing-l;
+  padding-top: $kun-spacing-xs;
+  padding-left: $kun-spacing-s;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding-top: $kun-spacing-2xs;
+    padding-left: $kun-spacing-xs;
+  }
 }
 
 .seeMoreButton {
@@ -96,8 +169,15 @@
   font-size: 14px;
   cursor: pointer;
   padding: 0;
-  margin-bottom: $kun-spacing-s;
+  margin-bottom: $kun-spacing-xs;
   text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 13px;
+    margin-bottom: $kun-spacing-2xs;
+  }
 
   &:hover {
     color: $kun-color-text-link-hover;
@@ -107,14 +187,22 @@
 .answers {
   display: flex;
   flex-direction: column;
-  gap: $kun-spacing-s;
+  gap: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    gap: $kun-spacing-2xs;
+  }
 }
 
 .answer {
   background: $kun-color-bg-soft;
   border: 1px solid $kun-color-border-soft;
-  border-radius: $kun-spacing-3xs;
-  padding: $kun-spacing-s;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-2xs;
+  }
 }
 
 .answerHeader {
@@ -122,22 +210,41 @@
   align-items: center;
   gap: $kun-spacing-xs;
   margin-bottom: $kun-spacing-2xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    gap: $kun-spacing-2xs;
+    margin-bottom: $kun-spacing-3xs;
+  }
 }
 
 .answerAuthor {
-  font-weight: 500;
+  font-weight: 600;
   color: $kun-color-text-primary;
   font-size: 14px;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 13px;
+  }
 }
 
 .answerDate {
   color: $kun-color-text-tertiary;
   font-size: 12px;
+  font-weight: 500;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 11px;
+  }
 }
 
 .answerBody {
   color: $kun-color-text-primary;
-  line-height: 1.4;
+  line-height: 1.5;
   margin: 0;
   font-size: 14px;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 13px;
+  }
 }

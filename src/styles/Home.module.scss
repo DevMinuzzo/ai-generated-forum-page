@@ -5,20 +5,41 @@
   margin: 0 auto;
   padding: 0 $kun-spacing-s;
   min-height: 100vh;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: 0 $kun-spacing-xs;
+  }
 }
 
 .header {
   text-align: center;
-  padding: $kun-spacing-l 0;
+  padding: $kun-spacing-l 0 $kun-spacing-s 0;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-s 0 $kun-spacing-xs 0;
+  }
 }
 
 .title {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 42px;
+  font-weight: 800;
   color: $kun-color-text-title;
   margin: 0;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, $kun-color-brand-sapphireblue 0%, $kun-color-brand-coral 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 28px;
+  }
 }
 
 .main {
-  padding-bottom: $kun-spacing-4xl;
+  padding-bottom: $kun-spacing-xl;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding-bottom: $kun-spacing-l;
+  }
 }

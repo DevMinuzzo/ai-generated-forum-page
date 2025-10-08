@@ -18,12 +18,34 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
     setShowAnswerForm(false);
   };
 
-  const displayedAnswers = showAllAnswers ? thread.answers : thread.answers.slice(-1);
+  // Sort answers by newest first
+  const sortedAnswers = [...thread.answers].sort((a, b) => 
+    new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+  
+  const displayedAnswers = showAllAnswers ? sortedAnswers : sortedAnswers.slice(0, 1);
   const hasMoreAnswers = thread.answers.length > 1;
 
   const getMoodEmoji = (mood: number): string => {
-    const moodEmojis = ['😢', '😕', '😐', '😊', '😄'];
-    return moodEmojis[mood - 1] || '😐';
+    const moodOptions = [
+      { value: 1, emoji: '😢', label: 'Very Sad' },
+      { value: 2, emoji: '😕', label: 'Sad' },
+      { value: 3, emoji: '😐', label: 'Neutral' },
+      { value: 4, emoji: '😊', label: 'Happy' },
+      { value: 5, emoji: '😄', label: 'Very Happy' }
+    ];
+    return moodOptions.find(option => option.value === mood)?.emoji || '😐';
+  };
+
+  const getMoodLabel = (mood: number): string => {
+    const moodOptions = [
+      { value: 1, emoji: '😢', label: 'Very Sad' },
+      { value: 2, emoji: '😕', label: 'Sad' },
+      { value: 3, emoji: '😐', label: 'Neutral' },
+      { value: 4, emoji: '😊', label: 'Happy' },
+      { value: 5, emoji: '😄', label: 'Very Happy' }
+    ];
+    return moodOptions.find(option => option.value === mood)?.label || 'Neutral';
   };
 
   return (
@@ -33,7 +55,7 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
           <span className={styles.authorName}>{thread.authorName}</span>
           <span className={styles.postDate}>{formatDate(thread.createdAt)}</span>
         </div>
-        <div className={styles.mood}>
+        <div className={styles.mood} title={getMoodLabel(thread.mood)}>
           <span className={styles.moodEmoji}>{getMoodEmoji(thread.mood)}</span>
           <span className={styles.moodValue}>{thread.mood}/5</span>
         </div>
@@ -47,7 +69,7 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
           onClick={() => setShowAnswerForm(!showAnswerForm)}
           className={styles.answerButton}
         >
-          {showAnswerForm ? 'Cancel' : 'Answer'}
+          {showAnswerForm ? 'Cancel' : 'Reply'}
         </button>
       </div>
 
