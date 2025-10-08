@@ -2,73 +2,42 @@
 
 .answerForm {
   background: $kun-color-bg-soft;
-  border: 2px solid $kun-color-border-soft;
+  border: 1px solid $kun-color-border-soft;
   border-radius: $kun-spacing-2xs;
-  padding: $kun-spacing-s;
+  padding: $kun-spacing-xs;
   margin: $kun-spacing-xs 0;
 
   @media (max-width: $kun-media-s-tablet) {
-    padding: $kun-spacing-xs;
+    padding: $kun-spacing-2xs;
     margin: $kun-spacing-2xs 0;
   }
 }
 
-.formGroup {
-  margin-bottom: $kun-spacing-xs;
-
-  @media (max-width: $kun-media-s-tablet) {
-    margin-bottom: $kun-spacing-2xs;
-  }
-}
-
-.label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 15px;
-  font-weight: 600;
-  color: $kun-color-text-primary;
-  margin-bottom: $kun-spacing-2xs;
-  letter-spacing: -0.01em;
-
-  @media (max-width: $kun-media-s-tablet) {
-    font-size: 14px;
-  }
-}
-
-.charCount {
-  font-size: 13px;
-  color: $kun-color-text-tertiary;
-  font-weight: 400;
-
-  @media (max-width: $kun-media-s-tablet) {
-    font-size: 12px;
-  }
+.form {
+  width: 100%;
 }
 
 .bodyTextarea {
   width: 100%;
-  padding: $kun-spacing-xs;
-  border: 2px solid $kun-color-border-medium;
-  border-radius: $kun-spacing-2xs;
-  font-size: 15px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 14px;
   color: $kun-color-text-primary;
-  background: $kun-color-bg-white;
+  background: transparent;
   font-family: inherit;
   resize: vertical;
   box-sizing: border-box;
   line-height: 1.5;
-  transition: all 0.2s ease;
+  margin-bottom: $kun-spacing-xs;
 
   @media (max-width: $kun-media-s-tablet) {
-    padding: $kun-spacing-2xs;
-    font-size: 14px;
+    font-size: 13px;
+    margin-bottom: $kun-spacing-2xs;
   }
 
   &:focus {
     outline: none;
-    border-color: $kun-color-brand-sapphireblue;
-    box-shadow: 0 0 0 3px rgba($kun-color-brand-sapphireblue, 0.1);
   }
 
   &::placeholder {
@@ -78,8 +47,23 @@
 
 .buttonGroup {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.charCount {
+  font-size: 12px;
+  color: $kun-color-text-tertiary;
+  font-weight: 500;
+
+  @media (max-width: $kun-media-s-tablet) {
+    font-size: 11px;
+  }
+}
+
+.buttons {
+  display: flex;
   gap: $kun-spacing-2xs;
-  justify-content: flex-end;
 }
 
 .cancelButton {
@@ -107,26 +91,26 @@
 }
 
 .submitButton {
-  background: $kun-color-brand-sapphireblue;
+  background: $kun-color-base-coral-90;
   color: $kun-color-text-ondark;
   border: none;
   border-radius: $kun-spacing-2xs;
   padding: $kun-spacing-2xs $kun-spacing-xs;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   letter-spacing: -0.01em;
 
   @media (max-width: $kun-media-s-tablet) {
+    font-size: 12px;
     padding: $kun-spacing-3xs $kun-spacing-2xs;
-    font-size: 13px;
   }
 
   &:hover:not(:disabled) {
-    background: $kun-color-brand-sapphireblue;
+    background: $kun-color-base-coral-100;
     transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba($kun-color-brand-sapphireblue, 0.3);
+    box-shadow: 0 3px 8px rgba($kun-color-base-coral-90, 0.3);
   }
 
   &:disabled {

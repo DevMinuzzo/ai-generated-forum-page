@@ -20,14 +20,8 @@ export default function AnswerForm({ onSubmit, onCancel }: AnswerFormProps) {
   const remainingChars = 180 - body.length;
 
   return (
-    <form onSubmit={handleSubmit} className={styles.answerForm}>
-      <div className={styles.formGroup}>
-        <label htmlFor="answer-body" className={styles.label}>
-          Your Answer
-          <span className={styles.charCount}>
-            {remainingChars} characters remaining
-          </span>
-        </label>
+    <div className={styles.answerForm}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <textarea
           id="answer-body"
           value={body}
@@ -42,24 +36,29 @@ export default function AnswerForm({ onSubmit, onCancel }: AnswerFormProps) {
           required
           autoFocus
         />
-      </div>
 
-      <div className={styles.buttonGroup}>
-        <button 
-          type="button" 
-          onClick={onCancel}
-          className={styles.cancelButton}
-        >
-          Cancel
-        </button>
-        <button 
-          type="submit" 
-          className={styles.submitButton}
-          disabled={!body.trim()}
-        >
-          Post Answer
-        </button>
-      </div>
-    </form>
+        <div className={styles.buttonGroup}>
+          <span className={styles.charCount}>
+            {remainingChars} characters remaining
+          </span>
+          <div className={styles.buttons}>
+            <button 
+              type="button" 
+              onClick={onCancel}
+              className={styles.cancelButton}
+            >
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              className={styles.submitButton}
+              disabled={!body.trim()}
+            >
+              Post Answer
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 }

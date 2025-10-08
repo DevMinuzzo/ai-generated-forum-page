@@ -48,16 +48,33 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
     return moodOptions.find(option => option.value === mood)?.label || 'Neutral';
   };
 
+  const getMoodBackgroundClass = (mood: number): string => {
+    switch (mood) {
+      case 1:
+        return styles.moodRed;
+      case 2:
+        return styles.moodOrange;
+      case 3:
+        return styles.moodYellow;
+      case 4:
+        return styles.moodLightGreen;
+      case 5:
+        return styles.moodGreen;
+      default:
+        return styles.moodYellow;
+    }
+  };
+
   return (
     <div className={styles.threadCard}>
       <div className={styles.threadHeader}>
         <div className={styles.authorInfo}>
+          <div className={`${styles.mood} ${getMoodBackgroundClass(thread.mood)}`} title={getMoodLabel(thread.mood)}>
+            <span className={styles.moodEmoji}>{getMoodEmoji(thread.mood)}</span>
+            <span className={styles.moodValue}>{thread.mood}/5</span>
+          </div>
           <span className={styles.authorName}>{thread.authorName}</span>
           <span className={styles.postDate}>{formatDate(thread.createdAt)}</span>
-        </div>
-        <div className={styles.mood} title={getMoodLabel(thread.mood)}>
-          <span className={styles.moodEmoji}>{getMoodEmoji(thread.mood)}</span>
-          <span className={styles.moodValue}>{thread.mood}/5</span>
         </div>
       </div>
 
@@ -65,12 +82,14 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
       <p className={styles.threadBody}>{thread.body}</p>
 
       <div className={styles.threadActions}>
-        <button 
-          onClick={() => setShowAnswerForm(!showAnswerForm)}
-          className={styles.answerButton}
-        >
-          {showAnswerForm ? 'Cancel' : 'Reply'}
-        </button>
+        {!showAnswerForm && (
+          <button 
+            onClick={() => setShowAnswerForm(true)}
+            className={styles.answerButton}
+          >
+            Reply
+          </button>
+        )}
       </div>
 
       {showAnswerForm && (
@@ -82,24 +101,6 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
 
       {thread.answers.length > 0 && (
         <div className={styles.answersSection}>
-          {hasMoreAnswers && !showAllAnswers && (
-            <button 
-              onClick={() => setShowAllAnswers(true)}
-              className={styles.seeMoreButton}
-            >
-              See all {thread.answers.length} answers
-            </button>
-          )}
-          
-          {showAllAnswers && hasMoreAnswers && (
-            <button 
-              onClick={() => setShowAllAnswers(false)}
-              className={styles.seeMoreButton}
-            >
-              Show only latest answer
-            </button>
-          )}
-
           <div className={styles.answers}>
             {displayedAnswers.map((answer) => (
               <div key={answer.id} className={styles.answer}>
@@ -111,6 +112,28 @@ export default function ThreadCard({ thread, onAddAnswer }: ThreadCardProps) {
               </div>
             ))}
           </div>
+
+          {hasMoreAnswers && !showAllAnswers && (
+            <div className={styles.seeMoreContainer}>
+              <button 
+                onClick={() => setShowAllAnswers(true)}
+                className={styles.seeMoreButton}
+              >
+                See all {thread.answers.length} answers
+              </button>
+            </div>
+          )}
+          
+          {showAllAnswers && hasMoreAnswers && (
+            <div className={styles.seeMoreContainer}>
+              <button 
+                onClick={() => setShowAllAnswers(false)}
+                className={styles.seeMoreButton}
+              >
+                Show only latest answer
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -22,7 +22,7 @@
 
 .threadHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: $kun-spacing-xs;
 
@@ -38,6 +38,20 @@
 
   @media (max-width: $kun-media-s-tablet) {
     gap: $kun-spacing-2xs;
+  }
+}
+
+.mood {
+  display: flex;
+  align-items: center;
+  gap: $kun-spacing-2xs;
+  background: $kun-color-bg-soft;
+  padding: $kun-spacing-3xs $kun-spacing-2xs;
+  border-radius: $kun-spacing-3xs;
+  cursor: help;
+
+  @media (max-width: $kun-media-s-tablet) {
+    padding: $kun-spacing-4xs $kun-spacing-3xs;
   }
 }
 
@@ -73,6 +87,46 @@
 
   @media (max-width: $kun-media-s-tablet) {
     padding: $kun-spacing-4xs $kun-spacing-3xs;
+  }
+
+  &.moodRed {
+    background: $kun-color-base-red-20;
+    
+    .moodValue {
+      color: $kun-color-base-red-100;
+    }
+  }
+
+  &.moodOrange {
+    background: $kun-color-base-coral-20;
+    
+    .moodValue {
+      color: $kun-color-base-coral-100;
+    }
+  }
+
+  &.moodYellow {
+    background: $kun-color-base-yellow-20;
+    
+    .moodValue {
+      color: $kun-color-base-yellow-110;
+    }
+  }
+
+  &.moodLightGreen {
+    background: $kun-color-base-green-20;
+    
+    .moodValue {
+      color: $kun-color-base-green-100;
+    }
+  }
+
+  &.moodGreen {
+    background: $kun-color-base-green-30;
+    
+    .moodValue {
+      color: $kun-color-base-green-110;
+    }
   }
 }
 
@@ -131,23 +185,26 @@
 }
 
 .answerButton {
-  background: transparent;
-  color: $kun-color-text-link;
+  background: $kun-color-base-coral-90;
+  color: $kun-color-text-ondark;
   border: none;
-  padding: 0;
-  font-size: 14px;
+  border-radius: $kun-spacing-2xs;
+  padding: $kun-spacing-2xs $kun-spacing-xs;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   letter-spacing: -0.01em;
-  text-decoration: underline;
 
   @media (max-width: $kun-media-s-tablet) {
-    font-size: 13px;
+    font-size: 12px;
+    padding: $kun-spacing-3xs $kun-spacing-2xs;
   }
 
   &:hover {
-    color: $kun-color-text-link-hover;
+    background: $kun-color-base-coral-100;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba($kun-color-base-coral-90, 0.3);
   }
 }
 
@@ -162,6 +219,16 @@
   }
 }
 
+.seeMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: $kun-spacing-xs;
+
+  @media (max-width: $kun-media-s-tablet) {
+    margin-top: $kun-spacing-2xs;
+  }
+}
+
 .seeMoreButton {
   background: transparent;
   color: $kun-color-text-link;
@@ -169,14 +236,12 @@
   font-size: 14px;
   cursor: pointer;
   padding: 0;
-  margin-bottom: $kun-spacing-xs;
   text-decoration: underline;
   font-weight: 500;
   transition: color 0.2s ease;
 
   @media (max-width: $kun-media-s-tablet) {
     font-size: 13px;
-    margin-bottom: $kun-spacing-2xs;
   }
 
   &:hover {

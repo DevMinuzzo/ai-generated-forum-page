@@ -15,7 +15,7 @@ export default function ThreadForm({ onSubmit }: ThreadFormProps) {
     if (title.trim() && body.trim()) {
       onSubmit(title, mood, body);
       setTitle('');
-      setMood(1);
+      setMood(3);
       setBody('');
     }
   };
