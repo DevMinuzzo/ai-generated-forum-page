@@ -7,7 +7,7 @@ export interface ThreadFormProps {
 
 export default function ThreadForm({ onSubmit }: ThreadFormProps) {
   const [title, setTitle] = useState('');
-  const [mood, setMood] = useState(1);
+  const [mood, setMood] = useState(3);
   const [body, setBody] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -24,23 +24,23 @@ export default function ThreadForm({ onSubmit }: ThreadFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.threadForm}>
-      <h2 className={styles.formTitle}>Create New Thread</h2>
+      <h2 className={styles.formTitle}>What&apos;s on your mind?</h2>
       
       <div className={styles.formGroup}>
-        <label htmlFor="title" className={styles.label}>Title</label>
+        <label htmlFor="title" className={styles.label}>Give it a title</label>
         <input
           id="title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter thread title..."
+          placeholder="What&apos;s this about?"
           className={styles.titleInput}
           required
         />
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="mood" className={styles.label}>Mood</label>
+        <label htmlFor="mood" className={styles.label}>How are you feeling?</label>
         <div className={styles.moodSelector}>
           {[
             { value: 1, emoji: '😢', label: 'Very Sad' },
@@ -65,7 +65,7 @@ export default function ThreadForm({ onSubmit }: ThreadFormProps) {
 
       <div className={styles.formGroup}>
         <label htmlFor="body" className={styles.label}>
-          Body
+          Share your thoughts
           <span className={styles.charCount}>
             {remainingChars} characters remaining
           </span>
@@ -78,7 +78,7 @@ export default function ThreadForm({ onSubmit }: ThreadFormProps) {
               setBody(e.target.value);
             }
           }}
-          placeholder="What's on your mind?"
+          placeholder="What&apos;s on your mind?"
           className={styles.bodyTextarea}
           rows={4}
           required
